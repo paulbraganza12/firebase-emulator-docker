@@ -12,6 +12,7 @@ services:
       - 9099:9099 #Firebase Auth
       - 9199:9199 #Firebase Cloud Storage
       - 9000:9000 #Firebase Realtime database
+      - 8085:8085 # pubsub
     environment:
       - FB_PROJECT_ID=evolute-test # Enter your Firebase project ID here
     volumes:

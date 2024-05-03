@@ -5,7 +5,7 @@
 FROM node:18-alpine 
 
 # Install JDK
-RUN apk add --no-cache openjdk11
+RUN apk --no-cache add openjdk17-jre
 
 # Install the firebase cli
 RUN npm install -g firebase-tools
@@ -15,7 +15,7 @@ RUN npm cache clean --force
 RUN firebase setup:emulators:database
 RUN firebase setup:emulators:firestore
 RUN firebase setup:emulators:storage
-# RUN firebase setup:emulators:pubsub     # this crashes the container
+RUN firebase setup:emulators:pubsub
 RUN firebase setup:emulators:ui
 
 # Copying everything (=the firebase configuration to the workdir)
